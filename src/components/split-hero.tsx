@@ -15,6 +15,20 @@ interface SplitHeroProps {
   rightCtaHref: string
 }
 
+interface AnimatedDot {
+  left: string
+  top: string
+  animationDelay: string
+  animationDuration: string
+}
+
+interface Sparkle {
+  left: string
+  top: string
+  animationDelay: string
+  animationDuration: string
+}
+
 export function SplitHero({
   leftTitle,
   leftSubtext,
@@ -26,9 +40,49 @@ export function SplitHero({
   rightCtaHref,
 }: SplitHeroProps) {
   const [isVisible, setIsVisible] = useState(false)
+  const [leftDots, setLeftDots] = useState<AnimatedDot[]>([])
+  const [rightDots, setRightDots] = useState<AnimatedDot[]>([])
+  const [leftSparkles, setLeftSparkles] = useState<Sparkle[]>([])
+  const [rightSparkles, setRightSparkles] = useState<Sparkle[]>([])
 
   useEffect(() => {
     setIsVisible(true)
+    
+    // Generate random dots for left side
+    const leftDotsData = [...Array(30)].map(() => ({
+      left: `${Math.random() * 100}%`,
+      top: `${Math.random() * 100}%`,
+      animationDelay: `${Math.random() * 3}s`,
+      animationDuration: `${2 + Math.random() * 2}s`
+    }))
+    setLeftDots(leftDotsData)
+    
+    // Generate random dots for right side
+    const rightDotsData = [...Array(30)].map(() => ({
+      left: `${Math.random() * 100}%`,
+      top: `${Math.random() * 100}%`,
+      animationDelay: `${Math.random() * 3}s`,
+      animationDuration: `${2 + Math.random() * 2}s`
+    }))
+    setRightDots(rightDotsData)
+    
+    // Generate random sparkles for left side
+    const leftSparklesData = [...Array(8)].map(() => ({
+      left: `${Math.random() * 100}%`,
+      top: `${Math.random() * 100}%`,
+      animationDelay: `${Math.random() * 2}s`,
+      animationDuration: `${1.5 + Math.random() * 1}s`
+    }))
+    setLeftSparkles(leftSparklesData)
+    
+    // Generate random sparkles for right side
+    const rightSparklesData = [...Array(8)].map(() => ({
+      left: `${Math.random() * 100}%`,
+      top: `${Math.random() * 100}%`,
+      animationDelay: `${Math.random() * 2}s`,
+      animationDuration: `${1.5 + Math.random() * 1}s`
+    }))
+    setRightSparkles(rightSparklesData)
   }, [])
 
   return (
@@ -85,30 +139,30 @@ export function SplitHero({
             
             {/* Enhanced animated dots grid */}
             <div className="absolute inset-0 opacity-20">
-              {[...Array(30)].map((_, i) => (
+              {leftDots.map((dot, i) => (
                 <div
                   key={i}
                   className="absolute w-1 h-1 bg-white rounded-full animate-pulse"
                   style={{
-                    left: `${Math.random() * 100}%`,
-                    top: `${Math.random() * 100}%`,
-                    animationDelay: `${Math.random() * 3}s`,
-                    animationDuration: `${2 + Math.random() * 2}s`
+                    left: dot.left,
+                    top: dot.top,
+                    animationDelay: dot.animationDelay,
+                    animationDuration: dot.animationDuration
                   }}
                 ></div>
               ))}
             </div>
             
             {/* Sparkle effects */}
-            {[...Array(8)].map((_, i) => (
+            {leftSparkles.map((sparkle, i) => (
               <div
                 key={`sparkle-${i}`}
                 className="absolute w-2 h-2 bg-white/30 rounded-full animate-sparkle"
                 style={{
-                  left: `${Math.random() * 100}%`,
-                  top: `${Math.random() * 100}%`,
-                  animationDelay: `${Math.random() * 2}s`,
-                  animationDuration: `${1.5 + Math.random() * 1}s`
+                  left: sparkle.left,
+                  top: sparkle.top,
+                  animationDelay: sparkle.animationDelay,
+                  animationDuration: sparkle.animationDuration
                 }}
               ></div>
             ))}
@@ -203,30 +257,30 @@ export function SplitHero({
             
             {/* Enhanced animated dots grid */}
             <div className="absolute inset-0 opacity-20">
-              {[...Array(30)].map((_, i) => (
+              {rightDots.map((dot, i) => (
                 <div
                   key={i}
                   className="absolute w-1 h-1 bg-black rounded-full animate-pulse"
                   style={{
-                    left: `${Math.random() * 100}%`,
-                    top: `${Math.random() * 100}%`,
-                    animationDelay: `${Math.random() * 3}s`,
-                    animationDuration: `${2 + Math.random() * 2}s`
+                    left: dot.left,
+                    top: dot.top,
+                    animationDelay: dot.animationDelay,
+                    animationDuration: dot.animationDuration
                   }}
                 ></div>
               ))}
             </div>
             
             {/* Sparkle effects */}
-            {[...Array(8)].map((_, i) => (
+            {rightSparkles.map((sparkle, i) => (
               <div
                 key={`sparkle-${i}`}
                 className="absolute w-2 h-2 bg-black/30 rounded-full animate-sparkle"
                 style={{
-                  left: `${Math.random() * 100}%`,
-                  top: `${Math.random() * 100}%`,
-                  animationDelay: `${Math.random() * 2}s`,
-                  animationDuration: `${1.5 + Math.random() * 1}s`
+                  left: sparkle.left,
+                  top: sparkle.top,
+                  animationDelay: sparkle.animationDelay,
+                  animationDuration: sparkle.animationDuration
                 }}
               ></div>
             ))}

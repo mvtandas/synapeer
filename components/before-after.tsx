@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useRef, useEffect } from "react"
-import { motion, useMotionValue, useTransform } from "@motionone/react"
+import { useMotionValue, useTransform } from "motion/react"
 
 interface BeforeAfterProps {
   beforeSrc: string
@@ -55,30 +55,28 @@ export function BeforeAfter({ beforeSrc, afterSrc, alt, initial = 50 }: BeforeAf
       >
         {/* Before Image (Background) */}
         <div className="w-full aspect-video bg-gray-200 flex items-center justify-center">
-          <p className="text-muted-foreground">Before Image</p>
+          <img src={beforeSrc} alt={`${alt} - Before`} className="w-full h-full object-cover" />
         </div>
 
         {/* After Image (Clipped) */}
-        <motion.div
+        <div
           className="absolute inset-0 overflow-hidden"
           style={{ clipPath: `inset(0 ${100 - x.get()}% 0 0)` }}
         >
           <div className="w-full aspect-video bg-blue-200 flex items-center justify-center">
-            <p className="text-muted-foreground">After Image</p>
+            <img src={afterSrc} alt={`${alt} - After`} className="w-full h-full object-cover" />
           </div>
-        </motion.div>
+        </div>
 
         {/* Slider Handle */}
-        <motion.div
+        <div
           className="absolute top-0 bottom-0 w-1 bg-white cursor-ew-resize"
-          style={{ left: width }}
-          whileHover={{ scale: 1.2 }}
-          whileTap={{ scale: 0.9 }}
+          style={{ left: width.get() }}
         >
           <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-8 h-8 bg-white rounded-full shadow-lg border-2 border-gray-300 flex items-center justify-center">
             <div className="w-4 h-4 bg-gray-400 rounded-full" />
           </div>
-        </motion.div>
+        </div>
 
         {/* Labels */}
         <div className="absolute bottom-4 left-4 bg-black/50 text-white px-3 py-1 rounded text-sm">

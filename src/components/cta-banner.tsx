@@ -9,11 +9,11 @@ export function CTABanner() {
     <section className="py-20 bg-white">
       <div className="container text-center">
         <h2 className="text-3xl lg:text-4xl font-bold mb-6 text-black">
-          Let's build the future together!
+          Let&apos;s build the future together!
         </h2>
         <p className="text-lg mb-8 max-w-2xl mx-auto text-black/70 leading-relaxed">
           Ready to transform your digital presence and drive measurable growth? 
-          Let's discuss your goals and create a strategy that delivers results.
+          Let&apos;s discuss your goals and create a strategy that delivers results.
         </p>
         
         <div className="flex flex-col sm:flex-row gap-4 justify-center">

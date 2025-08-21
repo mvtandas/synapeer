@@ -139,7 +139,7 @@ export default function ContactPage() {
                     description: "Monday - Friday: 9:00 AM - 6:00 PM EST\nSaturday: 10:00 AM - 2:00 PM EST",
                     delay: 300
                   }
-                ].map((contact, index) => (
+                ].map((contact) => (
                   <div
                     key={contact.title}
                     className="group animate-fade-in-up"

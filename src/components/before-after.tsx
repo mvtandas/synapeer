@@ -3,10 +3,13 @@
 import { useState, useRef, useEffect } from "react"
 
 interface BeforeAfterProps {
+  beforeSrc: string
+  afterSrc: string
+  alt: string
   initial?: number
 }
 
-export function BeforeAfter({ initial = 50 }: BeforeAfterProps) {
+export function BeforeAfter({ beforeSrc, afterSrc, alt, initial = 50 }: BeforeAfterProps) {
   const [isDragging, setIsDragging] = useState(false)
   const [position, setPosition] = useState(initial)
   const containerRef = useRef<HTMLDivElement>(null)
@@ -50,7 +53,7 @@ export function BeforeAfter({ initial = 50 }: BeforeAfterProps) {
       >
         {/* Before Image (Background) */}
         <div className="w-full aspect-video bg-gray-200 flex items-center justify-center">
-          <p className="text-muted-foreground">Before Image</p>
+          <img src={beforeSrc} alt={`${alt} - Before`} className="w-full h-full object-cover" />
         </div>
 
         {/* After Image (Clipped) */}
@@ -59,7 +62,7 @@ export function BeforeAfter({ initial = 50 }: BeforeAfterProps) {
           style={{ clipPath: `inset(0 ${100 - position}% 0 0)` }}
         >
           <div className="w-full aspect-video bg-gray-400 flex items-center justify-center">
-            <p className="text-muted-foreground">After Image</p>
+            <img src={afterSrc} alt={`${alt} - After`} className="w-full h-full object-cover" />
           </div>
         </div>
 

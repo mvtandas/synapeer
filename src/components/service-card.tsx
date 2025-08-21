@@ -1,6 +1,5 @@
 "use client"
 
-import Link from "next/link"
 import { LucideIcon } from "lucide-react"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 
@@ -9,10 +8,9 @@ interface ServiceCardProps {
   description: string
   icon: LucideIcon
   bullets: string[]
-  href: string
 }
 
-export function ServiceCard({ title, description, icon: Icon, bullets, href }: ServiceCardProps) {
+export function ServiceCard({ title, description, icon: Icon, bullets }: ServiceCardProps) {
   return (
     <div className="group relative h-full">
       {/* Enhanced hover background effect */}

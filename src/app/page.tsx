@@ -178,7 +178,7 @@ export default function HomePage() {
           </div>
           <h3 className="text-3xl lg:text-4xl font-bold mb-6 text-black">Ready to Transform Your Business?</h3>
           <p className="text-lg text-black/70 mb-8 max-w-2xl mx-auto leading-relaxed">
-            Let's discuss how our comprehensive services can drive your growth and achieve your business objectives.
+            Let&apos;s discuss how our comprehensive services can drive your growth and achieve your business objectives.
           </p>
           
           {/* Decorative line */}
