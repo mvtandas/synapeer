@@ -43,6 +43,10 @@ module.exports = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        // Brand colors
+        'deep-tech-blue': '#0A2540',
+        'charcoal-black': '#111111',
+        'bold-teal': '#00B4A0',
       },
       borderRadius: {
         lg: "var(--radius)",

@@ -4,26 +4,33 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 0 0% 9%;
+    --background: 0 0% 100%; /* White */
+    --foreground: 204 75% 15%; /* Deep Tech Blue #0A2540 */
     --card: 0 0% 100%;
-    --card-foreground: 0 0% 9%;
+    --card-foreground: 204 75% 15%;
     --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 9%;
-    --primary: 0 0% 9%;
-    --primary-foreground: 0 0% 98%;
-    --secondary: 0 0% 96%;
-    --secondary-foreground: 0 0% 9%;
+    --popover-foreground: 204 75% 15%;
+    --primary: 204 75% 15%; /* Deep Tech Blue #0A2540 */
+    --primary-foreground: 0 0% 100%; /* White */
+    --secondary: 0 0% 7%; /* Charcoal Black #111111 */
+    --secondary-foreground: 0 0% 100%;
     --muted: 0 0% 96%;
     --muted-foreground: 0 0% 45%;
-    --accent: 0 0% 96%;
-    --accent-foreground: 0 0% 9%;
-    --destructive: 0 0% 45%;
+    --accent: 172 100% 35%; /* Bold Teal #00B4A0 */
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 98%;
     --border: 0 0% 91%;
     --input: 0 0% 91%;
-    --ring: 0 0% 9%;
+    --ring: 204 75% 15%;
     --radius: 0.5rem;
+    
+    /* Custom brand colors */
+    --deep-tech-blue: 204 75% 15%; /* #0A2540 */
+    --charcoal-black: 0 0% 7%; /* #111111 */
+    --bold-teal: 172 100% 35%; /* #00B4A0 */
+    --gradient-start: 204 75% 15%;
+    --gradient-end: 172 100% 35%;
   }
 
   .dark {

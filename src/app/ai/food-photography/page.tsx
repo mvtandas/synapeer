@@ -12,20 +12,20 @@ export const metadata = {
 const howItWorks = [
   {
     step: 1,
-    title: "Upload",
-    description: "Upload your food images through our secure platform",
+    title: "Share Your Photos",
+    description: "Send us your product shots — or let our team capture them for you.",
     icon: Upload
   },
   {
     step: 2,
-    title: "AI Styling",
-    description: "Our AI analyzes and enhances composition, lighting, and styling",
+    title: "Define Your Photography Style",
+    description: "Tell us how you want your dishes to appear.",
     icon: Sparkles
   },
   {
     step: 3,
-    title: "Lighting & Retouch",
-    description: "Professional lighting adjustments and color correction",
+    title: "AI-Enhanced Creation",
+    description: "We generate new, high-quality food images, then apply professional lighting, color correction for natural results.",
     icon: Zap
   },
   {
@@ -72,7 +72,7 @@ export default function AIFoodPhotographyPage() {
   return (
     <>
       {/* Hero Section */}
-              <section className="py-20 bg-primary text-white">
+              <section className="py-20 bg-gradient-to-br from-deep-tech-blue via-charcoal-black to-deep-tech-blue text-white relative overflow-hidden">
         <div className="container text-center">
           <div
             
@@ -88,7 +88,7 @@ export default function AIFoodPhotographyPage() {
             
             className="text-xl lg:text-2xl max-w-3xl mx-auto mb-8"
           >
-            Transform ordinary food images into stunning, restaurant-quality photos with our AI-powered technology
+            From appetizing menus to scroll-stopping social posts, our AI creates images that sell.
           </p>
           <div
             
@@ -96,12 +96,12 @@ export default function AIFoodPhotographyPage() {
             
             className="flex flex-col sm:flex-row gap-4 justify-center"
           >
-            <Button asChild size="lg" variant="secondary">
+            <Button asChild size="lg" className="bg-gradient-to-r from-bold-teal to-deep-tech-blue hover:from-bold-teal/90 hover:to-deep-tech-blue/90 text-white shadow-lg">
               <Link href="/contact">
                 Get Started
               </Link>
             </Button>
-            <Button asChild size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-orange-500">
+            <Button asChild size="lg" variant="outline" className="border-2 border-white/30 text-white hover:bg-white hover:text-deep-tech-blue">
               <Link href="#demo">
                 View Demo
               </Link>
@@ -136,7 +136,7 @@ export default function AIFoodPhotographyPage() {
       </section>
 
       {/* How It Works */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-gradient-to-br from-white via-blue-50 to-teal-50 relative overflow-hidden">
         <div className="container">
           <div
             
@@ -148,7 +148,7 @@ export default function AIFoodPhotographyPage() {
               How It Works
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Our simple 4-step process delivers professional results in minutes
+              From Plate to Perfection in 4 Simple Steps
             </p>
           </div>
 
@@ -161,8 +161,8 @@ export default function AIFoodPhotographyPage() {
                 
                 className="text-center"
               >
-                <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <step.icon className="h-8 w-8 text-orange-600" />
+                <div className="w-16 h-16 bg-gradient-to-br from-bold-teal/10 to-deep-tech-blue/10 rounded-full flex items-center justify-center mx-auto mb-4 border border-bold-teal/20">
+                  <step.icon className="h-8 w-8 text-deep-tech-blue" />
                 </div>
                 <h3 className="text-xl font-semibold mb-2">{step.title}</h3>
                 <p className="text-muted-foreground">{step.description}</p>
@@ -173,7 +173,7 @@ export default function AIFoodPhotographyPage() {
       </section>
 
       {/* Use Cases */}
-      <section className="py-20">
+      <section className="py-20 bg-gradient-to-br from-blue-50 via-white to-teal-50 relative overflow-hidden">
         <div className="container">
           <div
             
@@ -199,8 +199,8 @@ export default function AIFoodPhotographyPage() {
               >
                 <Card className="h-full text-center">
                   <CardHeader>
-                    <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mx-auto mb-4">
-                      <useCase.icon className="h-6 w-6 text-orange-600" />
+                    <div className="w-12 h-12 bg-gradient-to-br from-bold-teal/10 to-deep-tech-blue/10 rounded-lg flex items-center justify-center mx-auto mb-4 border border-bold-teal/20">
+                      <useCase.icon className="h-6 w-6 text-deep-tech-blue" />
                     </div>
                     <CardTitle className="text-xl">{useCase.title}</CardTitle>
                   </CardHeader>
@@ -215,7 +215,7 @@ export default function AIFoodPhotographyPage() {
       </section>
 
       {/* Benefits */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-gradient-to-br from-teal-50 via-white to-slate-50 relative overflow-hidden">
         <div className="container">
           <div
             
@@ -240,7 +240,7 @@ export default function AIFoodPhotographyPage() {
                 
                 className="flex items-start space-x-3"
               >
-                                 <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0" />
+                                 <div className="w-2 h-2 bg-gradient-to-r from-bold-teal to-deep-tech-blue rounded-full mt-2 flex-shrink-0" />
                 <p className="text-muted-foreground">{benefit}</p>
               </div>
             ))}
@@ -248,41 +248,40 @@ export default function AIFoodPhotographyPage() {
         </div>
       </section>
 
-      {/* Showcase Grid */}
-      <section className="py-20">
+      {/* See the Difference */}
+      <section className="py-20 bg-gradient-to-br from-slate-50 via-white to-blue-50 relative overflow-hidden">
         <div className="container">
-          <div
-            
-            
-            
-            className="text-center mb-16"
-          >
+          <div className="text-center mb-16">
             <h2 className="text-3xl lg:text-4xl font-bold mb-4">
-              Showcase
+              See the Difference
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              See examples of our AI-enhanced food photography
+              Three before and after examples of our AI-enhanced photography
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[1, 2, 3, 4, 5, 6].map((item) => (
-              <div
-                key={item}
-                
-                
-                
-                className="aspect-square bg-gray-200 rounded-lg flex items-center justify-center"
-              >
-                <p className="text-muted-foreground">Food Photo {item}</p>
-              </div>
-            ))}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <BeforeAfter
+              beforeSrc="/1.jpg"
+              afterSrc="/2.jpg"
+              alt="Food photography transformation 1"
+            />
+            <BeforeAfter
+              beforeSrc="/3.jpg"
+              afterSrc="/4.jpg"
+              alt="Food photography transformation 2"
+            />
+            <BeforeAfter
+              beforeSrc="/5.jpg"
+              afterSrc="/6.jpg"
+              alt="Food photography transformation 3"
+            />
           </div>
         </div>
       </section>
 
       {/* CTA Section */}
-              <section className="py-20 bg-primary text-white">
+              <section className="py-20 bg-gradient-to-br from-deep-tech-blue via-charcoal-black to-deep-tech-blue text-white relative overflow-hidden">
         <div className="container text-center">
           <div
             
@@ -296,12 +295,12 @@ export default function AIFoodPhotographyPage() {
               Get started with AI-powered food photography and see the difference it makes for your business.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button asChild size="lg" variant="secondary">
+              <Button asChild size="lg" className="bg-gradient-to-r from-bold-teal to-deep-tech-blue hover:from-bold-teal/90 hover:to-deep-tech-blue/90 text-white shadow-lg">
                 <Link href="/contact">
                   Get Started Today
                 </Link>
               </Button>
-              <Button asChild size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-orange-500">
+              <Button asChild size="lg" variant="outline" className="border-2 border-white/30 text-white hover:bg-white hover:text-deep-tech-blue">
                 <Link href="/contact">
                   Request Demo
                 </Link>

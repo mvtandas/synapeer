@@ -35,11 +35,11 @@ export function Header() {
         isScrolled ? "container" : "px-6 lg:px-12"
       )}>
         {/* Logo */}
-        <Link href="/" className="flex items-center space-x-2">
+        <Link href="/" className="flex items-center">
           <img 
             src="/logo.png" 
             alt="Synapeer Logo" 
-            className="h-16 w-auto transition-all duration-300"
+            className="h-12 w-auto transition-all duration-300"
           />
         </Link>
 
@@ -65,7 +65,7 @@ export function Header() {
         <div className="hidden md:flex items-center space-x-4">
           <Button asChild className={cn(
             "transition-all duration-300",
-            "bg-primary text-primary-foreground hover:bg-primary/90"
+            "bg-gradient-to-r from-deep-tech-blue to-bold-teal hover:from-deep-tech-blue/90 hover:to-bold-teal/90 text-white"
           )}>
             <Link href={SITE.ctas.primary.href}>
               {SITE.ctas.primary.label}

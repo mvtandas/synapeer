@@ -1,44 +1,46 @@
-"use client"
-
 import { SplitHero } from "@/components/split-hero"
 import { ServiceCard } from "@/components/service-card"
 import { ProcessSteps } from "@/components/process-steps"
 import { CTABanner } from "@/components/cta-banner"
-import { services } from "@/content/services"
+import { SITE, SERVICES, PROCESS_STEPS } from "@/lib/data"
+import { getFloatingElements } from "@/lib/deterministic-random"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
 
 export default function HomePage() {
+  const siteData = SITE
+  const services = SERVICES
+  const processSteps = PROCESS_STEPS
   return (
     <>
       <SplitHero
-        leftTitle="Performance Marketing That Delivers Measurable Growth"
-        leftSubtext="Focused on KPIs, campaign efficiency, and global media execution."
-        leftCtaLabel="Explore Marketing Services"
-        leftCtaHref="/consultancy"
-        rightTitle="AI-Powered Innovation for the Future"
-        rightSubtext="Starting with professional food photography, expanding into scalable AI tools."
-        rightCtaLabel="Discover AI Solutions"
-        rightCtaHref="/ai"
+        leftTitle="Data-Driven Growth"
+        leftSubtext="High-performance marketing strategies that optimize spend and maximize results."
+        leftCtaLabel={siteData?.primaryCta?.label || "Explore Marketing Services"}
+        leftCtaHref={siteData?.primaryCta?.href || "/consultancy"}
+        rightTitle="AI-Driven Creativity"
+        rightSubtext="Starting with professional photography, expanding into scalable AI tools."
+        rightCtaLabel={siteData?.secondaryCta?.label || "Discover AI Solutions"}
+        rightCtaHref={siteData?.secondaryCta?.href || "/ai"}
       />
 
       {/* About Section */}
-      <section className="py-20 bg-white relative overflow-hidden">
+      <section className="py-20 bg-gradient-to-br from-white via-slate-50 to-blue-50 relative overflow-hidden">
         {/* Background decorative elements */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           {/* Subtle grid pattern */}
           <div className="absolute inset-0 bg-[linear-gradient(rgba(0,0,0,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(0,0,0,0.02)_1px,transparent_1px)] bg-[size:40px_40px]"></div>
           
           {/* Floating elements */}
-          {[...Array(4)].map((_, i) => (
+          {getFloatingElements(4).map((item, i) => (
             <div
               key={i}
               className="absolute w-1 h-1 bg-black/15 rounded-full animate-float"
               style={{
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-                animationDelay: `${Math.random() * 2}s`,
-                animationDuration: `${4 + Math.random() * 3}s`
+                left: `${item.left}%`,
+                top: `${item.top}%`,
+                animationDelay: `${item.delay}s`,
+                animationDuration: `${item.duration}s`
               }}
             ></div>
           ))}
@@ -64,22 +66,22 @@ export default function HomePage() {
       </section>
 
       {/* Services Section */}
-      <section className="py-24 bg-white relative overflow-hidden">
+      <section className="py-24 bg-gradient-to-br from-blue-50 via-white to-teal-50 relative overflow-hidden">
         {/* Background decorative elements */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           {/* Subtle grid pattern */}
           <div className="absolute inset-0 bg-[linear-gradient(rgba(0,0,0,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(0,0,0,0.03)_1px,transparent_1px)] bg-[size:50px_50px]"></div>
           
           {/* Floating particles */}
-          {[...Array(6)].map((_, i) => (
+          {getFloatingElements(6).map((item, i) => (
             <div
               key={i}
               className="absolute w-1 h-1 bg-black/20 rounded-full animate-float"
               style={{
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-                animationDelay: `${Math.random() * 3}s`,
-                animationDuration: `${6 + Math.random() * 4}s`
+                left: `${item.left}%`,
+                top: `${item.top}%`,
+                animationDelay: `${item.delay}s`,
+                animationDuration: `${item.duration}s`
               }}
             ></div>
           ))}
@@ -150,22 +152,22 @@ export default function HomePage() {
       </section>
 
       {/* Bottom CTA section */}
-      <section className="py-20 bg-white relative overflow-hidden">
+      <section className="py-20 bg-gradient-to-br from-teal-50 via-white to-slate-50 relative overflow-hidden">
         {/* Background decorative elements */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           {/* Subtle grid pattern */}
           <div className="absolute inset-0 bg-[linear-gradient(rgba(0,0,0,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(0,0,0,0.02)_1px,transparent_1px)] bg-[size:40px_40px]"></div>
           
           {/* Floating elements */}
-          {[...Array(3)].map((_, i) => (
+          {getFloatingElements(3).map((item, i) => (
             <div
               key={i}
               className="absolute w-1 h-1 bg-black/15 rounded-full animate-float"
               style={{
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-                animationDelay: `${Math.random() * 2}s`,
-                animationDuration: `${4 + Math.random() * 3}s`
+                left: `${item.left}%`,
+                top: `${item.top}%`,
+                animationDelay: `${item.delay}s`,
+                animationDuration: `${item.duration}s`
               }}
             ></div>
           ))}
@@ -185,12 +187,12 @@ export default function HomePage() {
           <div className="w-24 h-1 bg-gradient-to-r from-black to-black/40 mx-auto mb-8 rounded-full"></div>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button asChild size="lg" className="bg-black hover:bg-black/80 text-white px-8 py-3 text-lg font-medium shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+            <Button asChild size="lg" className="bg-gradient-to-r from-deep-tech-blue to-bold-teal hover:from-deep-tech-blue/90 hover:to-bold-teal/90 text-white px-8 py-3 text-lg font-medium shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
               <Link href="/contact">
                 Get Started Today
               </Link>
             </Button>
-            <Button asChild variant="outline" size="lg" className="border-2 border-black/20 hover:border-black text-black hover:bg-black hover:text-white px-8 py-3 text-lg font-medium transition-all duration-300 hover:scale-105">
+            <Button asChild variant="outline" size="lg" className="border-2 border-deep-tech-blue/20 hover:border-deep-tech-blue text-deep-tech-blue hover:bg-gradient-to-r hover:from-deep-tech-blue hover:to-bold-teal hover:text-white px-8 py-3 text-lg font-medium transition-all duration-300 hover:scale-105">
               <Link href="/consultancy">
                 View All Services
               </Link>
@@ -200,7 +202,7 @@ export default function HomePage() {
       </section>
 
       {/* Trust Logos */}
-      <section className="py-20 bg-white relative overflow-hidden">
+      <section className="py-20 bg-gradient-to-br from-slate-50 via-white to-blue-50 relative overflow-hidden">
         {/* Background decorative elements */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           {/* Subtle grid pattern */}
@@ -227,22 +229,22 @@ export default function HomePage() {
       </section>
 
       {/* Value Props */}
-      <section className="py-20 bg-white relative overflow-hidden">
+      <section className="py-20 bg-gradient-to-br from-white via-blue-50 to-teal-50 relative overflow-hidden">
         {/* Background decorative elements */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           {/* Subtle grid pattern */}
           <div className="absolute inset-0 bg-[linear-gradient(rgba(0,0,0,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(0,0,0,0.02)_1px,transparent_1px)] bg-[size:40px_40px]"></div>
           
           {/* Floating elements */}
-          {[...Array(5)].map((_, i) => (
+          {getFloatingElements(5).map((item, i) => (
             <div
               key={i}
               className="absolute w-1 h-1 bg-black/15 rounded-full animate-float"
               style={{
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-                animationDelay: `${Math.random() * 2}s`,
-                animationDuration: `${4 + Math.random() * 3}s`
+                left: `${item.left}%`,
+                top: `${item.top}%`,
+                animationDelay: `${item.delay}s`,
+                animationDuration: `${item.duration}s`
               }}
             ></div>
           ))}
@@ -305,7 +307,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <ProcessSteps />
+      <ProcessSteps steps={processSteps} />
       <CTABanner />
     </>
   )

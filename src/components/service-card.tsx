@@ -1,16 +1,26 @@
 "use client"
 
-import { LucideIcon } from "lucide-react"
+import { LucideIcon, BarChart3, Search, TrendingUp, FileText, ShoppingCart, Camera } from "lucide-react"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 
 interface ServiceCardProps {
   title: string
   description: string
-  icon: LucideIcon
+  icon: string
   bullets: string[]
 }
 
-export function ServiceCard({ title, description, icon: Icon, bullets }: ServiceCardProps) {
+const iconMap: Record<string, LucideIcon> = {
+  BarChart3,
+  Search,
+  TrendingUp,
+  FileText,
+  ShoppingCart,
+  Camera
+}
+
+export function ServiceCard({ title, description, icon, bullets }: ServiceCardProps) {
+  const Icon = iconMap[icon] || Search
   return (
     <div className="group relative h-full">
       {/* Enhanced hover background effect */}

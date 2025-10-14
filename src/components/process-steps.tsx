@@ -1,8 +1,45 @@
 "use client"
 
-import { processSteps } from "@/content/process"
+interface ProcessStep {
+  step: number
+  title: string
+  description: string
+  icon?: string
+}
 
-export function ProcessSteps() {
+interface ProcessStepsProps {
+  steps?: ProcessStep[]
+}
+
+export function ProcessSteps({ steps }: ProcessStepsProps) {
+  // Fallback to static data if no steps provided
+  const processSteps = steps || [
+    {
+      step: 1,
+      title: "Discovery & Strategy",
+      description: "We begin with an in-depth consultation to understand your business goals, industry challenges, and target audience."
+    },
+    {
+      step: 2,
+      title: "Custom Solution Development", 
+      description: "Based on the insights gathered, we develop a tailored strategy aligned with your specific needs."
+    },
+    {
+      step: 3,
+      title: "Implementation & Execution",
+      description: "Our team brings the strategy to life by executing targeted campaigns and integrating AI-driven solutions."
+    },
+    {
+      step: 4,
+      title: "Data Analytics & Optimization",
+      description: "We continuously monitor and analyze performance metrics to refine strategies in real time."
+    },
+    {
+      step: 5,
+      title: "Scaling & Long-Term Growth",
+      description: "Once we achieve measurable success, we shift focus to scalability and sustainability."
+    }
+  ]
   return (
     <section className="py-24 bg-white relative overflow-hidden">
       {/* Background decorative elements */}
@@ -11,15 +48,24 @@ export function ProcessSteps() {
         <div className="absolute inset-0 bg-[linear-gradient(rgba(0,0,0,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(0,0,0,0.03)_1px,transparent_1px)] bg-[size:50px_50px]"></div>
         
         {/* Floating geometric shapes */}
-        {[...Array(8)].map((_, i) => (
+        {[
+          { left: 15, top: 25, delay: 0.5, duration: 6 },
+          { left: 75, top: 60, delay: 1.2, duration: 7 },
+          { left: 35, top: 85, delay: 2.1, duration: 5.5 },
+          { left: 85, top: 20, delay: 0.8, duration: 8 },
+          { left: 10, top: 70, delay: 1.8, duration: 6.5 },
+          { left: 60, top: 40, delay: 0.3, duration: 7.5 },
+          { left: 90, top: 80, delay: 2.5, duration: 5.8 },
+          { left: 25, top: 15, delay: 1.5, duration: 6.8 }
+        ].map((item, i) => (
           <div
             key={i}
             className="absolute w-2 h-2 bg-black/10 rounded-full animate-float"
             style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              animationDelay: `${Math.random() * 3}s`,
-              animationDuration: `${5 + Math.random() * 4}s`
+              left: `${item.left}%`,
+              top: `${item.top}%`,
+              animationDelay: `${item.delay}s`,
+              animationDuration: `${item.duration}s`
             }}
           ></div>
         ))}

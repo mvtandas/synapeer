@@ -1,14 +1,17 @@
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { getFloatingElements } from "@/lib/deterministic-random"
 import { Camera, Sparkles, Zap } from "lucide-react"
 import Link from "next/link"
 
-export const metadata = {
-  title: "AI Applications - AI-Powered Innovation",
-  description: "We develop AI-powered applications that enhance digital experiences, automate workflows, and create intelligent solutions for businesses and individuals.",
+export function generateMetadata() {
+  return {
+    title: "AI Applications - AI-Powered Innovation",
+    description: "We develop AI-powered applications that enhance digital experiences, automate workflows, and create intelligent solutions for businesses and individuals.",
+  }
 }
 
-const aiTools = [
+  const aiTools = [
   {
     title: "AI Food Photography",
     description: "Professional food photography powered by AI technology. Transform ordinary food images into stunning, restaurant-quality photos.",
@@ -35,7 +38,7 @@ const aiTools = [
       "Brand voice consistency"
     ],
     href: "#",
-    status: "Coming Soon"
+    status: "In Development"
   },
   {
     title: "AI Analytics Dashboard",
@@ -49,7 +52,7 @@ const aiTools = [
       "Performance optimization"
     ],
     href: "#",
-    status: "Coming Soon"
+    status: "In Development"
   }
 ]
 
@@ -57,22 +60,22 @@ export default function AIPage() {
   return (
     <>
       {/* Hero Section */}
-      <section className="py-24 bg-black text-white relative overflow-hidden">
+      <section className="py-24 bg-gradient-to-br from-deep-tech-blue via-charcoal-black to-deep-tech-blue text-white relative overflow-hidden">
         {/* Background decorative elements */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           {/* Grid pattern */}
           <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[size:50px_50px]"></div>
           
           {/* Floating elements */}
-          {[...Array(10)].map((_, i) => (
+          {getFloatingElements(10).map((item, i) => (
             <div
               key={i}
               className="absolute w-1 h-1 bg-white/20 rounded-full animate-float"
               style={{
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-                animationDelay: `${Math.random() * 3}s`,
-                animationDuration: `${5 + Math.random() * 4}s`
+                left: `${item.left}%`,
+                top: `${item.top}%`,
+                animationDelay: `${item.delay}s`,
+                animationDuration: `${item.duration}s`
               }}
             ></div>
           ))}
@@ -99,12 +102,12 @@ export default function AIPage() {
           <div className="w-32 h-1 bg-gradient-to-r from-white via-white/60 to-white/20 mx-auto mb-8 rounded-full"></div>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button asChild size="lg" className="bg-white text-black hover:bg-white/90 px-8 py-3 text-lg font-medium shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+            <Button asChild size="lg" className="bg-gradient-to-r from-bold-teal to-deep-tech-blue hover:from-bold-teal/90 hover:to-deep-tech-blue/90 text-white px-8 py-3 text-lg font-medium shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
               <Link href="/ai/food-photography">
                 Try AI Food Photography
               </Link>
             </Button>
-            <Button asChild size="lg" variant="outline" className="border-2 border-white/30 text-white hover:bg-white hover:text-black px-8 py-3 text-lg font-medium transition-all duration-300 hover:scale-105">
+            <Button asChild size="lg" variant="outline" className="border-2 border-white/30 text-white hover:bg-white hover:text-deep-tech-blue px-8 py-3 text-lg font-medium transition-all duration-300 hover:scale-105">
               <Link href="/contact">
                 Discuss AI Solutions
               </Link>
@@ -114,22 +117,22 @@ export default function AIPage() {
       </section>
 
       {/* AI Tools Grid */}
-      <section className="py-24 bg-white relative overflow-hidden">
+      <section className="py-24 bg-gradient-to-br from-white via-blue-50 to-teal-50 relative overflow-hidden">
         {/* Background decorative elements */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           {/* Grid pattern */}
           <div className="absolute inset-0 bg-[linear-gradient(rgba(0,0,0,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(0,0,0,0.03)_1px,transparent_1px)] bg-[size:50px_50px]"></div>
           
           {/* Floating elements */}
-          {[...Array(8)].map((_, i) => (
+          {getFloatingElements(8).map((item, i) => (
             <div
               key={i}
               className="absolute w-1 h-1 bg-black/15 rounded-full animate-float"
               style={{
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-                animationDelay: `${Math.random() * 2}s`,
-                animationDuration: `${4 + Math.random() * 3}s`
+                left: `${item.left}%`,
+                top: `${item.top}%`,
+                animationDelay: `${item.delay}s`,
+                animationDuration: `${item.duration}s`
               }}
             ></div>
           ))}
@@ -199,15 +202,15 @@ export default function AIPage() {
                       ))}
                     </ul>
                     {tool.status === "Available Now" ? (
-                      <Button asChild className="w-full bg-black text-white hover:bg-black/80 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+                      <Button asChild className="w-full bg-gradient-to-r from-deep-tech-blue to-bold-teal hover:from-deep-tech-blue/90 hover:to-bold-teal/90 text-white shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
                         <Link href={tool.href}>
                           Learn More
                         </Link>
                       </Button>
                     ) : (
-                      <Button asChild className="w-full border-2 border-black/20 text-black/50 hover:border-black/40 hover:text-black/70 transition-all duration-300" variant="outline" disabled>
+                      <Button asChild className="w-full border-2 border-deep-tech-blue/20 text-deep-tech-blue/50 hover:border-deep-tech-blue/40 hover:text-deep-tech-blue/70 transition-all duration-300" variant="outline" disabled>
                         <Link href={tool.href}>
-                          Coming Soon
+                          In Development
                         </Link>
                       </Button>
                     )}
@@ -226,22 +229,22 @@ export default function AIPage() {
       </section>
 
       {/* Roadmap Section */}
-      <section className="py-24 bg-white relative overflow-hidden">
+      <section className="py-24 bg-gradient-to-br from-teal-50 via-white to-slate-50 relative overflow-hidden">
         {/* Background decorative elements */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           {/* Grid pattern */}
           <div className="absolute inset-0 bg-[linear-gradient(rgba(0,0,0,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(0,0,0,0.02)_1px,transparent_1px)] bg-[size:40px_40px]"></div>
           
           {/* Floating elements */}
-          {[...Array(6)].map((_, i) => (
+          {getFloatingElements(6).map((item, i) => (
             <div
               key={i}
               className="absolute w-1 h-1 bg-black/15 rounded-full animate-float"
               style={{
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-                animationDelay: `${Math.random() * 2}s`,
-                animationDuration: `${4 + Math.random() * 3}s`
+                left: `${item.left}%`,
+                top: `${item.top}%`,
+                animationDelay: `${item.delay}s`,
+                animationDuration: `${item.duration}s`
               }}
             ></div>
           ))}
@@ -278,22 +281,22 @@ export default function AIPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 bg-white relative overflow-hidden">
+      <section className="py-24 bg-gradient-to-br from-slate-50 via-white to-blue-50 relative overflow-hidden">
         {/* Background decorative elements */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           {/* Grid pattern */}
           <div className="absolute inset-0 bg-[linear-gradient(rgba(0,0,0,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(0,0,0,0.02)_1px,transparent_1px)] bg-[size:40px_40px]"></div>
           
           {/* Floating elements */}
-          {[...Array(4)].map((_, i) => (
+          {getFloatingElements(4).map((item, i) => (
             <div
               key={i}
               className="absolute w-1 h-1 bg-black/15 rounded-full animate-float"
               style={{
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-                animationDelay: `${Math.random() * 2}s`,
-                animationDuration: `${4 + Math.random() * 3}s`
+                left: `${item.left}%`,
+                top: `${item.top}%`,
+                animationDelay: `${item.delay}s`,
+                animationDuration: `${item.duration}s`
               }}
             ></div>
           ))}
@@ -315,12 +318,12 @@ export default function AIPage() {
           <div className="w-32 h-1 bg-gradient-to-r from-black via-black/60 to-black/20 mx-auto mb-8 rounded-full"></div>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button asChild size="lg" className="bg-black text-white hover:bg-black/80 px-8 py-3 text-lg font-medium shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+            <Button asChild size="lg" className="bg-gradient-to-r from-deep-tech-blue to-bold-teal hover:from-deep-tech-blue/90 hover:to-bold-teal/90 text-white px-8 py-3 text-lg font-medium shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
               <Link href="/ai/food-photography">
                 Try AI Food Photography
               </Link>
             </Button>
-            <Button asChild size="lg" variant="outline" className="border-2 border-black/20 hover:border-black text-black hover:bg-black hover:text-white px-8 py-3 text-lg font-medium transition-all duration-300 hover:scale-105">
+            <Button asChild size="lg" variant="outline" className="border-2 border-deep-tech-blue/20 hover:border-deep-tech-blue text-deep-tech-blue hover:bg-deep-tech-blue hover:text-white px-8 py-3 text-lg font-medium transition-all duration-300 hover:scale-105">
               <Link href="/contact">
                 Discuss AI Solutions
               </Link>

@@ -87,3 +87,4 @@ export const services = [
     href: "/ai/food-photography"
   }
 ]
+

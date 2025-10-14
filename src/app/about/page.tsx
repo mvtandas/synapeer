@@ -1,16 +1,18 @@
 
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+import { getFloatingElements } from "@/lib/deterministic-random"
 import { Users, Target, Zap, Award } from "lucide-react"
 import Link from "next/link"
 
-export const metadata = {
-  title: "About - Synapeer Technologies Inc.",
-  description: "At Synapeer, we blend cutting-edge AI technology, advanced marketing strategies, and data-driven consulting to help businesses scale and innovate.",
+export function generateMetadata() {
+  return {
+    title: "About - Synapeer Technologies Inc.",
+    description: "At Synapeer, we blend cutting-edge AI technology, advanced marketing strategies, and data-driven consulting to help businesses scale and innovate.",
+  }
 }
 
-const values = [
+  const values = [
   {
     title: "Innovation",
     description: "We stay at the forefront of technology and marketing trends to deliver cutting-edge solutions.",
@@ -33,26 +35,7 @@ const values = [
   }
 ]
 
-const team = [
-  {
-    name: "John Smith",
-    role: "CEO & Founder",
-    bio: "10+ years in digital marketing and AI technology",
-    avatar: "/avatars/john.jpg"
-  },
-  {
-    name: "Sarah Johnson",
-    role: "Head of Marketing",
-    bio: "Expert in performance marketing and analytics",
-    avatar: "/avatars/sarah.jpg"
-  },
-  {
-    name: "Mike Chen",
-    role: "AI Lead",
-    bio: "Specialist in machine learning and AI applications",
-    avatar: "/avatars/mike.jpg"
-  }
-]
+
 
 const partners = [
   "Google", "Meta", "Amazon", "Microsoft", "Adobe", "HubSpot"
@@ -62,22 +45,22 @@ export default function AboutPage() {
   return (
     <>
       {/* Hero Section */}
-      <section className="py-24 bg-black text-white relative overflow-hidden">
+      <section className="py-24 bg-gradient-to-br from-deep-tech-blue via-charcoal-black to-deep-tech-blue text-white relative overflow-hidden">
         {/* Background decorative elements */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           {/* Grid pattern */}
           <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[size:50px_50px]"></div>
           
           {/* Floating elements */}
-          {[...Array(12)].map((_, i) => (
+          {getFloatingElements(12).map((item, i) => (
             <div
               key={i}
               className="absolute w-1 h-1 bg-white/20 rounded-full animate-float"
               style={{
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-                animationDelay: `${Math.random() * 3}s`,
-                animationDuration: `${5 + Math.random() * 4}s`
+                left: `${item.left}%`,
+                top: `${item.top}%`,
+                animationDelay: `${item.delay}s`,
+                animationDuration: `${item.duration}s`
               }}
             ></div>
           ))}
@@ -104,12 +87,12 @@ export default function AboutPage() {
           <div className="w-32 h-1 bg-gradient-to-r from-white via-white/60 to-white/20 mx-auto mb-8 rounded-full"></div>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button asChild size="lg" className="bg-white text-black hover:bg-white/90 px-8 py-3 text-lg font-medium shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+            <Button asChild size="lg" className="bg-gradient-to-r from-bold-teal to-white hover:from-bold-teal/90 hover:to-white/90 text-deep-tech-blue px-8 py-3 text-lg font-medium shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
               <Link href="/contact">
                 Get in Touch
               </Link>
             </Button>
-            <Button asChild size="lg" variant="outline" className="border-2 border-white/30 text-white hover:bg-white hover:text-black px-8 py-3 text-lg font-medium transition-all duration-300 hover:scale-105">
+            <Button asChild size="lg" variant="outline" className="border-2 border-white/30 text-white hover:bg-white hover:text-deep-tech-blue px-8 py-3 text-lg font-medium transition-all duration-300 hover:scale-105">
               <Link href="/consultancy">
                 View Our Services
               </Link>
@@ -119,22 +102,22 @@ export default function AboutPage() {
       </section>
 
       {/* Mission Section */}
-      <section className="py-24 bg-white relative overflow-hidden">
+      <section className="py-24 bg-gradient-to-br from-white via-slate-50 to-blue-50 relative overflow-hidden">
         {/* Background decorative elements */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           {/* Grid pattern */}
           <div className="absolute inset-0 bg-[linear-gradient(rgba(0,0,0,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(0,0,0,0.02)_1px,transparent_1px)] bg-[size:40px_40px]"></div>
           
           {/* Floating elements */}
-          {[...Array(6)].map((_, i) => (
+          {getFloatingElements(6).map((item, i) => (
             <div
               key={i}
               className="absolute w-1 h-1 bg-black/15 rounded-full animate-float"
               style={{
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-                animationDelay: `${Math.random() * 2}s`,
-                animationDuration: `${4 + Math.random() * 3}s`
+                left: `${item.left}%`,
+                top: `${item.top}%`,
+                animationDelay: `${item.delay}s`,
+                animationDuration: `${item.duration}s`
               }}
             ></div>
           ))}
@@ -163,22 +146,22 @@ export default function AboutPage() {
       </section>
 
       {/* Values Section */}
-      <section className="py-24 bg-white relative overflow-hidden">
+      <section className="py-24 bg-gradient-to-br from-blue-50 via-white to-teal-50 relative overflow-hidden">
         {/* Background decorative elements */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           {/* Grid pattern */}
           <div className="absolute inset-0 bg-[linear-gradient(rgba(0,0,0,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(0,0,0,0.03)_1px,transparent_1px)] bg-[size:50px_50px]"></div>
           
           {/* Floating elements */}
-          {[...Array(8)].map((_, i) => (
+          {getFloatingElements(8).map((item, i) => (
             <div
               key={i}
               className="absolute w-1 h-1 bg-black/15 rounded-full animate-float"
               style={{
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-                animationDelay: `${Math.random() * 2}s`,
-                animationDuration: `${4 + Math.random() * 3}s`
+                left: `${item.left}%`,
+                top: `${item.top}%`,
+                animationDelay: `${item.delay}s`,
+                animationDuration: `${item.duration}s`
               }}
             ></div>
           ))}
@@ -239,23 +222,23 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Team Section */}
-      <section className="py-24 bg-white relative overflow-hidden">
+      {/* Management Team Section */}
+      <section className="py-24 bg-gradient-to-br from-white via-slate-50 to-blue-50 relative overflow-hidden">
         {/* Background decorative elements */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           {/* Grid pattern */}
           <div className="absolute inset-0 bg-[linear-gradient(rgba(0,0,0,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(0,0,0,0.02)_1px,transparent_1px)] bg-[size:40px_40px]"></div>
           
           {/* Floating elements */}
-          {[...Array(6)].map((_, i) => (
+          {getFloatingElements(6).map((item, i) => (
             <div
               key={i}
               className="absolute w-1 h-1 bg-black/15 rounded-full animate-float"
               style={{
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-                animationDelay: `${Math.random() * 2}s`,
-                animationDuration: `${4 + Math.random() * 3}s`
+                left: `${item.left}%`,
+                top: `${item.top}%`,
+                animationDelay: `${item.delay}s`,
+                animationDuration: `${item.duration}s`
               }}
             ></div>
           ))}
@@ -268,43 +251,63 @@ export default function AboutPage() {
               Our Team
             </div>
             <h2 className="text-4xl lg:text-5xl font-bold mb-6 text-black">
-              Our Leadership Team
+              Management Team
             </h2>
             <p className="text-xl text-black/70 max-w-3xl mx-auto leading-relaxed">
-              Meet the experts behind our success
+              Meet the experienced leaders driving our vision and innovation
             </p>
             
             {/* Decorative line */}
             <div className="w-32 h-1 bg-gradient-to-r from-black via-black/60 to-black/20 mx-auto mt-8 rounded-full"></div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {team.map((member, index) => (
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+            {[
+              {
+                name: "Görkem",
+                position: "CEO",
+                delay: 0
+              },
+              {
+                name: "Tanju",
+                position: "CMO",
+                delay: 150
+              },
+              {
+                name: "Mustafa",
+                position: "CTO",
+                delay: 300
+              }
+            ].map((manager) => (
               <div
-                key={member.name}
+                key={manager.name}
                 className="group animate-fade-in-up"
                 style={{
-                  animationDelay: `${index * 200}ms`
+                  animationDelay: `${manager.delay}ms`
                 }}
               >
-                <Card className="h-full bg-white border border-black/10 hover:border-black/30 hover:shadow-xl transition-all duration-500 group-hover:scale-105 overflow-hidden">
+                <Card className="bg-white border border-black/10 hover:border-black/30 hover:shadow-xl transition-all duration-500 group-hover:scale-105 overflow-hidden">
                   {/* Card background effect */}
                   <div className="absolute inset-0 bg-gradient-to-br from-black/2 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                   
-                  <CardHeader className="relative z-10">
+                  <CardHeader className="relative z-10 text-center pb-6">
+                    {/* Avatar placeholder */}
                     <div className="relative mb-6">
-                      <Avatar className="w-24 h-24 mx-auto border-4 border-black/10 group-hover:border-black/20 transition-all duration-300 group-hover:scale-110">
-                        <AvatarImage src={member.avatar} alt={member.name} />
-                        <AvatarFallback className="bg-black/5 text-black font-bold text-xl">{member.name.split(' ').map(n => n[0]).join('')}</AvatarFallback>
-                      </Avatar>
-                      <div className="absolute inset-0 w-24 h-24 bg-black/10 rounded-full blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                      <div className="w-24 h-24 bg-black/5 rounded-full flex items-center justify-center mx-auto group-hover:bg-black/10 transition-all duration-300 group-hover:scale-110 border border-black/10">
+                        <div className="text-3xl font-bold text-black group-hover:text-black/80 transition-colors duration-300">
+                          {manager.name.charAt(0)}
+                        </div>
+                      </div>
+                      <div className="absolute inset-0 w-24 h-24 bg-black/10 rounded-full blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 mx-auto"></div>
                     </div>
-                    <CardTitle className="text-xl text-black group-hover:text-black/80 transition-colors duration-300">{member.name}</CardTitle>
-                    <CardDescription className="text-base font-semibold text-black/70 group-hover:text-black/80 transition-colors duration-300">{member.role}</CardDescription>
+                    
+                    <CardTitle className="text-xl text-black group-hover:text-black/80 transition-colors duration-300 mb-2">
+                      {manager.name}
+                    </CardTitle>
+                    <CardDescription className="text-lg font-medium text-black/70 group-hover:text-black/80 transition-colors duration-300">
+                      {manager.position}
+                    </CardDescription>
                   </CardHeader>
-                  <CardContent className="relative z-10">
-                    <p className="text-black/70 group-hover:text-black/80 transition-colors duration-300">{member.bio}</p>
-                  </CardContent>
                   
                   {/* Corner accent */}
                   <div className="absolute top-0 right-0 w-16 h-16 bg-gradient-to-bl from-black/10 via-black/5 to-transparent rounded-bl-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
@@ -319,7 +322,7 @@ export default function AboutPage() {
       </section>
 
       {/* Partners Section */}
-      <section className="py-24 bg-white relative overflow-hidden">
+      <section className="py-24 bg-gradient-to-br from-teal-50 via-white to-slate-50 relative overflow-hidden">
         {/* Background decorative elements */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           {/* Grid pattern */}
@@ -333,7 +336,7 @@ export default function AboutPage() {
               Our Partners
             </div>
             <h2 className="text-4xl lg:text-5xl font-bold mb-6 text-black">
-              Our Partners
+              Our Technology Partners
             </h2>
             <p className="text-xl text-black/70 mb-12 max-w-3xl mx-auto leading-relaxed">
               We work with industry-leading platforms and technologies
@@ -360,22 +363,22 @@ export default function AboutPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 bg-white relative overflow-hidden">
+      <section className="py-24 bg-gradient-to-br from-slate-50 via-white to-blue-50 relative overflow-hidden">
         {/* Background decorative elements */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           {/* Grid pattern */}
           <div className="absolute inset-0 bg-[linear-gradient(rgba(0,0,0,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(0,0,0,0.02)_1px,transparent_1px)] bg-[size:40px_40px]"></div>
           
           {/* Floating elements */}
-          {[...Array(4)].map((_, i) => (
+          {getFloatingElements(4).map((item, i) => (
             <div
               key={i}
               className="absolute w-1 h-1 bg-black/15 rounded-full animate-float"
               style={{
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-                animationDelay: `${Math.random() * 2}s`,
-                animationDuration: `${4 + Math.random() * 3}s`
+                left: `${item.left}%`,
+                top: `${item.top}%`,
+                animationDelay: `${item.delay}s`,
+                animationDuration: `${item.duration}s`
               }}
             ></div>
           ))}
@@ -397,12 +400,12 @@ export default function AboutPage() {
           <div className="w-32 h-1 bg-gradient-to-r from-black via-black/60 to-black/20 mx-auto mb-8 rounded-full"></div>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button asChild size="lg" className="bg-black text-white hover:bg-black/80 px-8 py-3 text-lg font-medium shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+            <Button asChild size="lg" className="bg-gradient-to-r from-deep-tech-blue to-bold-teal hover:from-deep-tech-blue/90 hover:to-bold-teal/90 text-white px-8 py-3 text-lg font-medium shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
               <Link href="/contact">
                 Get Started
               </Link>
             </Button>
-            <Button asChild size="lg" variant="outline" className="border-2 border-black/20 hover:border-black text-black hover:bg-black hover:text-white px-8 py-3 text-lg font-medium transition-all duration-300 hover:scale-105">
+            <Button asChild size="lg" variant="outline" className="border-2 border-deep-tech-blue/20 hover:border-deep-tech-blue text-deep-tech-blue hover:bg-gradient-to-r hover:from-deep-tech-blue hover:to-bold-teal hover:text-white px-8 py-3 text-lg font-medium transition-all duration-300 hover:scale-105">
               <Link href="/consultancy">
                 View Our Services
               </Link>

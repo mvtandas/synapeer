@@ -1,6 +1,6 @@
 import { services } from "@/content/services"
 import { Button } from "@/components/ui/button"
-
+import { getFloatingElements } from "@/lib/deterministic-random"
 import Link from "next/link"
 
 export const metadata = {
@@ -14,22 +14,22 @@ export default function ConsultancyPage() {
   return (
     <>
       {/* Hero Section */}
-      <section className="py-24 bg-black text-white relative overflow-hidden">
+      <section className="py-24 bg-gradient-to-br from-deep-tech-blue via-charcoal-black to-deep-tech-blue text-white relative overflow-hidden">
         {/* Background decorative elements */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           {/* Grid pattern */}
           <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[size:50px_50px]"></div>
           
           {/* Floating elements */}
-          {[...Array(8)].map((_, i) => (
+          {getFloatingElements(8).map((item, i) => (
             <div
               key={i}
               className="absolute w-1 h-1 bg-white/20 rounded-full animate-float"
               style={{
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-                animationDelay: `${Math.random() * 3}s`,
-                animationDuration: `${5 + Math.random() * 4}s`
+                left: `${item.left}%`,
+                top: `${item.top}%`,
+                animationDelay: `${item.delay}s`,
+                animationDuration: `${item.duration}s`
               }}
             ></div>
           ))}
@@ -55,12 +55,12 @@ export default function ConsultancyPage() {
           <div className="w-32 h-1 bg-gradient-to-r from-white via-white/60 to-white/20 mx-auto mb-8 rounded-full"></div>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button asChild size="lg" className="bg-white text-black hover:bg-white/90 px-8 py-3 text-lg font-medium shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+            <Button asChild size="lg" className="bg-gradient-to-r from-bold-teal to-white hover:from-bold-teal/90 hover:to-white/90 text-deep-tech-blue px-8 py-3 text-lg font-medium shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
               <Link href="/contact">
                 Get Started Today
               </Link>
             </Button>
-            <Button asChild size="lg" variant="outline" className="border-2 border-white/30 text-white hover:bg-white hover:text-black px-8 py-3 text-lg font-medium transition-all duration-300 hover:scale-105">
+            <Button asChild size="lg" variant="outline" className="border-2 border-white/30 text-white hover:bg-white hover:text-deep-tech-blue px-8 py-3 text-lg font-medium transition-all duration-300 hover:scale-105">
               <Link href="/contact">
                 Get a Free Audit
               </Link>
@@ -70,22 +70,22 @@ export default function ConsultancyPage() {
       </section>
 
       {/* Services Section */}
-      <section className="py-24 bg-white relative overflow-hidden">
+      <section className="py-24 bg-gradient-to-br from-white via-blue-50 to-teal-50 relative overflow-hidden">
         {/* Background decorative elements */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           {/* Grid pattern */}
           <div className="absolute inset-0 bg-[linear-gradient(rgba(0,0,0,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(0,0,0,0.03)_1px,transparent_1px)] bg-[size:50px_50px]"></div>
           
           {/* Floating elements */}
-          {[...Array(6)].map((_, i) => (
+          {getFloatingElements(6).map((item, i) => (
             <div
               key={i}
               className="absolute w-1 h-1 bg-black/15 rounded-full animate-float"
               style={{
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-                animationDelay: `${Math.random() * 2}s`,
-                animationDuration: `${4 + Math.random() * 3}s`
+                left: `${item.left}%`,
+                top: `${item.top}%`,
+                animationDelay: `${item.delay}s`,
+                animationDuration: `${item.duration}s`
               }}
             ></div>
           ))}
@@ -140,7 +140,7 @@ export default function ConsultancyPage() {
                         </li>
                       ))}
                     </ul>
-                    <Button asChild size="lg" className="bg-black text-white hover:bg-black/80 px-6 py-3 text-base font-medium shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+                    <Button asChild size="lg" className="bg-gradient-to-r from-deep-tech-blue to-bold-teal hover:from-deep-tech-blue/90 hover:to-bold-teal/90 text-white px-6 py-3 text-base font-medium shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
                       <Link href="/contact">
                         Get Started
                       </Link>
@@ -169,22 +169,22 @@ export default function ConsultancyPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 bg-white relative overflow-hidden">
+      <section className="py-24 bg-gradient-to-br from-teal-50 via-white to-slate-50 relative overflow-hidden">
         {/* Background decorative elements */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           {/* Grid pattern */}
           <div className="absolute inset-0 bg-[linear-gradient(rgba(0,0,0,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(0,0,0,0.02)_1px,transparent_1px)] bg-[size:40px_40px]"></div>
           
           {/* Floating elements */}
-          {[...Array(4)].map((_, i) => (
+          {getFloatingElements(4).map((item, i) => (
             <div
               key={i}
               className="absolute w-1 h-1 bg-black/15 rounded-full animate-float"
               style={{
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-                animationDelay: `${Math.random() * 2}s`,
-                animationDuration: `${4 + Math.random() * 3}s`
+                left: `${item.left}%`,
+                top: `${item.top}%`,
+                animationDelay: `${item.delay}s`,
+                animationDuration: `${item.duration}s`
               }}
             ></div>
           ))}
@@ -206,12 +206,12 @@ export default function ConsultancyPage() {
           <div className="w-32 h-1 bg-gradient-to-r from-black via-black/60 to-black/20 mx-auto mb-8 rounded-full"></div>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button asChild size="lg" className="bg-black text-white hover:bg-black/80 px-8 py-3 text-lg font-medium shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+            <Button asChild size="lg" className="bg-gradient-to-r from-deep-tech-blue to-bold-teal hover:from-deep-tech-blue/90 hover:to-bold-teal/90 text-white px-8 py-3 text-lg font-medium shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
               <Link href="/contact">
                 Schedule a Consultation
               </Link>
             </Button>
-            <Button asChild size="lg" variant="outline" className="border-2 border-black/20 hover:border-black text-black hover:bg-black hover:text-white px-8 py-3 text-lg font-medium transition-all duration-300 hover:scale-105">
+            <Button asChild size="lg" variant="outline" className="border-2 border-deep-tech-blue/20 hover:border-deep-tech-blue text-deep-tech-blue hover:bg-gradient-to-r hover:from-deep-tech-blue hover:to-bold-teal hover:text-white px-8 py-3 text-lg font-medium transition-all duration-300 hover:scale-105">
               <Link href="/contact">
                 Get a Free Audit
               </Link>

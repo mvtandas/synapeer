@@ -1,34 +1,37 @@
 import { ContactForm } from "@/components/contact-form"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Mail, Phone, MapPin, Clock } from "lucide-react"
+import { getFloatingElements } from "@/lib/deterministic-random"
+import { Mail, MapPin, Clock } from "lucide-react"
 import Link from "next/link"
 
-export const metadata = {
-  title: "Contact - Get in Touch with Synapeer",
-  description: "Ready to transform your digital presence? Contact us to discuss your project goals and discover how we can help your business grow.",
+export function generateMetadata() {
+  return {
+    title: "Contact - Get in Touch with Synapeer",
+    description: "Ready to transform your digital presence? Contact us to discuss your project goals and discover how we can help your business grow.",
+  }
 }
 
 export default function ContactPage() {
   return (
     <>
       {/* Hero Section */}
-      <section className="py-24 bg-black text-white relative overflow-hidden">
+      <section className="py-24 bg-gradient-to-br from-deep-tech-blue via-charcoal-black to-deep-tech-blue text-white relative overflow-hidden">
         {/* Background decorative elements */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           {/* Grid pattern */}
           <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[size:50px_50px]"></div>
           
           {/* Floating elements */}
-          {[...Array(10)].map((_, i) => (
+          {getFloatingElements(10).map((item, i) => (
             <div
               key={i}
               className="absolute w-1 h-1 bg-white/20 rounded-full animate-float"
               style={{
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-                animationDelay: `${Math.random() * 3}s`,
-                animationDuration: `${5 + Math.random() * 4}s`
+                left: `${item.left}%`,
+                top: `${item.top}%`,
+                animationDelay: `${item.delay}s`,
+                animationDuration: `${item.duration}s`
               }}
             ></div>
           ))}
@@ -56,22 +59,22 @@ export default function ContactPage() {
       </section>
 
       {/* Contact Form Section */}
-      <section className="py-24 bg-white relative overflow-hidden">
+      <section className="py-24 bg-gradient-to-br from-white via-blue-50 to-teal-50 relative overflow-hidden">
         {/* Background decorative elements */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           {/* Grid pattern */}
           <div className="absolute inset-0 bg-[linear-gradient(rgba(0,0,0,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(0,0,0,0.02)_1px,transparent_1px)] bg-[size:40px_40px]"></div>
           
           {/* Floating elements */}
-          {[...Array(6)].map((_, i) => (
+          {getFloatingElements(6).map((item, i) => (
             <div
               key={i}
               className="absolute w-1 h-1 bg-black/15 rounded-full animate-float"
               style={{
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-                animationDelay: `${Math.random() * 2}s`,
-                animationDuration: `${4 + Math.random() * 3}s`
+                left: `${item.left}%`,
+                top: `${item.top}%`,
+                animationDelay: `${item.delay}s`,
+                animationDuration: `${item.duration}s`
               }}
             ></div>
           ))}
@@ -122,22 +125,16 @@ export default function ContactPage() {
                     delay: 0
                   },
                   {
-                    icon: Phone,
-                    title: "Phone",
-                    description: "+1 (555) 123-4567",
-                    delay: 100
-                  },
-                  {
                     icon: MapPin,
                     title: "Office",
-                    description: "123 Business Ave, Suite 100\nNew York, NY 10001",
-                    delay: 200
+                    description: "30 N Gould St, Sheridan, WY",
+                    delay: 100
                   },
                   {
                     icon: Clock,
                     title: "Business Hours",
-                    description: "Monday - Friday: 9:00 AM - 6:00 PM EST\nSaturday: 10:00 AM - 2:00 PM EST",
-                    delay: 300
+                    description: "Monday - Sunday: 9:00 AM - 5:00 PM EST",
+                    delay: 200
                   }
                 ].map((contact) => (
                   <div
@@ -189,10 +186,8 @@ export default function ContactPage() {
             <div className="bg-black/5 rounded-2xl p-16 text-center border border-black/10 hover:border-black/20 transition-all duration-300 overflow-hidden relative">
               <div className="absolute inset-0 bg-gradient-to-br from-black/2 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-500"></div>
               <div className="relative z-10">
-                <p className="text-black/70 mb-8 text-xl">
-                  Calendly integration will be added here
-                </p>
-                <Button asChild className="bg-black text-white hover:bg-black/80 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 px-10 py-4 text-xl">
+
+                <Button asChild className="bg-gradient-to-r from-deep-tech-blue to-bold-teal hover:from-deep-tech-blue/90 hover:to-bold-teal/90 text-white shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 px-10 py-4 text-xl">
                   <Link href="#calendly">
                     Schedule a Strategy Call
                   </Link>
@@ -203,56 +198,25 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* Map Section */}
-      <section className="py-24 bg-white relative overflow-hidden">
-        {/* Background decorative elements */}
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          {/* Grid pattern */}
-          <div className="absolute inset-0 bg-[linear-gradient(rgba(0,0,0,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(0,0,0,0.02)_1px,transparent_1px)] bg-[size:40px_40px]"></div>
-        </div>
 
-        <div className="container relative z-10">
-          <div className="text-center mb-16">
-            <div className="inline-flex items-center px-4 py-2 bg-black/5 text-black text-sm font-medium rounded-full mb-6 animate-fade-in border border-black/10">
-              <span className="w-2 h-2 bg-black rounded-full mr-2 animate-pulse"></span>
-              Find Us
-            </div>
-            <h2 className="text-4xl lg:text-5xl font-bold mb-6 text-black">Find Us</h2>
-            <p className="text-xl text-black/70 leading-relaxed">
-              Visit our office in New York City
-            </p>
-            
-            {/* Decorative line */}
-            <div className="w-32 h-1 bg-gradient-to-r from-black via-black/60 to-black/20 mx-auto mt-8 rounded-full"></div>
-          </div>
-          
-          <div className="bg-black/5 rounded-2xl h-96 flex items-center justify-center border border-black/10 hover:border-black/20 transition-all duration-300 overflow-hidden relative">
-            <div className="absolute inset-0 bg-gradient-to-br from-black/2 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-500"></div>
-            <div className="relative z-10 text-center">
-              <div className="text-6xl mb-4 opacity-20">🗺️</div>
-              <p className="text-black/50 font-medium">Google Maps integration will be added here</p>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* FAQ Section */}
-      <section className="py-24 bg-white relative overflow-hidden">
+      <section className="py-24 bg-gradient-to-br from-teal-50 via-white to-slate-50 relative overflow-hidden">
         {/* Background decorative elements */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           {/* Grid pattern */}
           <div className="absolute inset-0 bg-[linear-gradient(rgba(0,0,0,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(0,0,0,0.02)_1px,transparent_1px)] bg-[size:40px_40px]"></div>
           
           {/* Floating elements */}
-          {[...Array(4)].map((_, i) => (
+          {getFloatingElements(4).map((item, i) => (
             <div
               key={i}
               className="absolute w-1 h-1 bg-black/15 rounded-full animate-float"
               style={{
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-                animationDelay: `${Math.random() * 2}s`,
-                animationDuration: `${4 + Math.random() * 3}s`
+                left: `${item.left}%`,
+                top: `${item.top}%`,
+                animationDelay: `${item.delay}s`,
+                animationDuration: `${item.duration}s`
               }}
             ></div>
           ))}

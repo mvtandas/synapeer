@@ -10,7 +10,7 @@ import {
 export const services = [
   {
     title: "Performance Marketing & Media Planning",
-    description: "Multi-channel paid strategies across Google, Meta, DV360, LinkedIn, TikTok; flighting, budgeting, and creative testing frameworks.",
+    description: "Scale globally with precision-targeted campaigns across DV360, Amazon DSP, and more.",
     icon: BarChart3,
     bullets: [
       "Multi-channel paid advertising strategies",
@@ -22,21 +22,22 @@ export const services = [
     href: "/consultancy"
   },
   {
-    title: "SEO & ASO",
-    description: "Technical audits, content strategy, link acquisition, mobile app listing optimization.",
+    title: "SEO & ASO & GEO",
+    description: "Climb search rankings and app stores with strategies designed to convert.",
     icon: Search,
     bullets: [
       "Technical SEO audits and optimization",
       "Content strategy and keyword research",
       "Link building and outreach campaigns",
       "Mobile app store optimization (ASO)",
+      "Generative Engine Optimization",
       "Local SEO and Google My Business"
     ],
     href: "/consultancy"
   },
   {
     title: "Product Analytics & Data",
-    description: "Measurement architecture, event taxonomy, dashboards, attribution (GA4, GTM, Pixels, BI).",
+    description: "Turn complex data into actionable insights for growth.",
     icon: TrendingUp,
     bullets: [
       "GA4 implementation and configuration",
@@ -49,7 +50,7 @@ export const services = [
   },
   {
     title: "Reporting & Automation",
-    description: "BI pipelines, automated performance reporting, alerts.",
+    description: "Save time and maximize ROI with automated workflows.",
     icon: FileText,
     bullets: [
       "Automated reporting systems",
@@ -62,7 +63,7 @@ export const services = [
   },
   {
     title: "Marketplace Marketing",
-    description: "Amazon Advertising & DSP, marketplace SEO, catalog optimization.",
+    description: "Dominate Amazon, Etsy, and global marketplaces with AI-enhanced optimization.",
     icon: ShoppingCart,
     bullets: [
       "Amazon Advertising campaigns",
@@ -74,11 +75,11 @@ export const services = [
     href: "/consultancy"
   },
   {
-    title: "AI Food Photography",
-    description: "Professional food photography powered by AI technology.",
+    title: "AI Photography",
+    description: "Professional photography powered by AI technology.",
     icon: Camera,
     bullets: [
-      "AI-powered food styling",
+      "AI-powered product design",
       "Professional lighting and composition",
       "High-resolution image delivery",
       "Consistent brand aesthetics",

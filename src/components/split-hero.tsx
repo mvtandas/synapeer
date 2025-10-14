@@ -89,7 +89,7 @@ export function SplitHero({
     <section className="relative min-h-screen lg:h-screen">
       <div className="grid grid-cols-1 lg:grid-cols-2 h-full">
         {/* Left Side - Digital Marketing */}
-        <div className="relative bg-black text-white flex items-center justify-center overflow-hidden min-h-[50vh] lg:min-h-full">
+        <div className="relative bg-gradient-to-br from-deep-tech-blue via-charcoal-black to-deep-tech-blue text-white flex items-center justify-center overflow-hidden min-h-[50vh] lg:min-h-full">
           {/* Animated Background for Left Side */}
           <div className="absolute inset-0">
             {/* Morphing shapes */}
@@ -135,7 +135,7 @@ export function SplitHero({
             <div className="absolute bottom-1/3 right-0 w-full h-px bg-gradient-to-l from-transparent via-white/15 to-transparent animate-slide-wave" style={{animationDelay: '1.5s'}}></div>
             
             {/* Gradient overlay with enhanced depth */}
-            <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-black to-gray-800 opacity-90"></div>
+            <div className="absolute inset-0 bg-gradient-to-br from-deep-tech-blue/50 via-charcoal-black/60 to-deep-tech-blue/50 opacity-90"></div>
             
             {/* Enhanced animated dots grid */}
             <div className="absolute inset-0 opacity-20">
@@ -192,7 +192,7 @@ export function SplitHero({
               <div className={`pt-4 transition-all duration-700 delay-600 ${
                 isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
               }`}>
-                <Button asChild size="lg" className="bg-white text-black hover:bg-gray-100 px-6 lg:px-8 py-3 text-base lg:text-lg font-semibold rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-lg animate-scale-bounce">
+                <Button asChild size="lg" className="bg-gradient-to-r from-bold-teal to-white hover:from-bold-teal/90 hover:to-white/90 text-deep-tech-blue px-6 lg:px-8 py-3 text-base lg:text-lg font-semibold rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-lg animate-scale-bounce">
                   <Link href={leftCtaHref}>
                     {leftCtaLabel}
                   </Link>
@@ -204,7 +204,7 @@ export function SplitHero({
         </div>
 
         {/* Right Side - AI Applications */}
-        <div className="relative bg-white text-black flex items-center justify-center overflow-hidden min-h-[50vh] lg:min-h-full">
+        <div className="relative bg-gradient-to-br from-white via-blue-50 to-teal-50 text-charcoal-black flex items-center justify-center overflow-hidden min-h-[50vh] lg:min-h-full">
           {/* Animated Background for Right Side */}
           <div className="absolute inset-0">
             {/* Morphing shapes */}
@@ -253,7 +253,7 @@ export function SplitHero({
             <div className="absolute bottom-1/3 left-0 w-full h-px bg-gradient-to-r from-transparent via-black/15 to-transparent animate-slide-wave" style={{animationDelay: '1s'}}></div>
             
             {/* Gradient overlay with enhanced depth */}
-            <div className="absolute inset-0 bg-gradient-to-br from-gray-50 via-white to-gray-100 opacity-90"></div>
+            <div className="absolute inset-0 bg-gradient-to-br from-white/80 via-blue-50/60 to-teal-50/80 opacity-90"></div>
             
             {/* Enhanced animated dots grid */}
             <div className="absolute inset-0 opacity-20">
@@ -318,7 +318,7 @@ export function SplitHero({
               <div className={`pt-4 transition-all duration-700 delay-800 ${
                 isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
               }`}>
-                <Button asChild size="lg" variant="outline" className="border-2 border-black text-black hover:bg-black hover:text-white px-6 lg:px-8 py-3 text-base lg:text-lg font-semibold rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-lg animate-scale-bounce">
+                <Button asChild size="lg" variant="outline" className="border-2 border-deep-tech-blue text-deep-tech-blue hover:bg-gradient-to-r hover:from-deep-tech-blue hover:to-bold-teal hover:text-white px-6 lg:px-8 py-3 text-base lg:text-lg font-semibold rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-lg animate-scale-bounce">
                   <Link href={rightCtaHref}>
                     {rightCtaLabel}
                   </Link>
