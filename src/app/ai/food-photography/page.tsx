@@ -127,11 +127,13 @@ export default function AIFoodPhotographyPage() {
             </p>
           </div>
           
-          <BeforeAfter
-            beforeSrc="/placeholder-before.jpg"
-            afterSrc="/placeholder-after.jpg"
-            alt="Food photography before and after"
-          />
+          <div className="max-w-4xl mx-auto">
+            <BeforeAfter
+              beforeSrc="/silsara/2.jpeg"
+              afterSrc="/silsara/1.jpeg"
+              alt="AI food photography transformation - Professional enhancement"
+            />
+          </div>
         </div>
       </section>
 
@@ -260,21 +262,21 @@ export default function AIFoodPhotographyPage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="space-y-12 max-w-4xl mx-auto">
             <BeforeAfter
-              beforeSrc="/1.jpg"
-              afterSrc="/2.jpg"
-              alt="Food photography transformation 1"
+              beforeSrc="/silsara/2.jpeg"
+              afterSrc="/silsara/1.jpeg"
+              alt="Food photography transformation - Enhanced lighting and composition"
             />
             <BeforeAfter
-              beforeSrc="/3.jpg"
-              afterSrc="/4.jpg"
-              alt="Food photography transformation 2"
+              beforeSrc="/silsara/4.png"
+              afterSrc="/silsara/3.jpeg"
+              alt="Food photography transformation - Professional color correction"
             />
             <BeforeAfter
-              beforeSrc="/5.jpg"
-              afterSrc="/6.jpg"
-              alt="Food photography transformation 3"
+              beforeSrc="/silsara/6.png"
+              afterSrc="/silsara/5.jpeg"
+              alt="Food photography transformation - AI-powered enhancement"
             />
           </div>
         </div>

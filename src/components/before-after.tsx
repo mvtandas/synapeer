@@ -44,25 +44,36 @@ export function BeforeAfter({ beforeSrc, afterSrc, alt, initial = 50 }: BeforeAf
     <div className="relative w-full max-w-4xl mx-auto">
       <div
         ref={containerRef}
-        className="relative overflow-hidden rounded-lg cursor-ew-resize"
+        className="relative overflow-hidden rounded-lg cursor-ew-resize select-none"
         onMouseMove={handleMouseMove}
         onMouseDown={handleMouseDown}
         onMouseUp={handleMouseUp}
         onTouchMove={handleTouchMove}
         onTouchEnd={handleMouseUp}
+        style={{ userSelect: 'none', WebkitUserSelect: 'none', MozUserSelect: 'none', msUserSelect: 'none' }}
       >
         {/* Before Image (Background) */}
-        <div className="w-full aspect-video bg-gray-200 flex items-center justify-center">
-          <img src={beforeSrc} alt={`${alt} - Before`} className="w-full h-full object-cover" />
+        <div className="w-full aspect-[4/3] bg-gray-200 flex items-center justify-center select-none">
+          <img 
+            src={beforeSrc} 
+            alt={`${alt} - Before`} 
+            className="w-full h-full object-cover select-none pointer-events-none" 
+            draggable={false}
+          />
         </div>
 
         {/* After Image (Clipped) */}
         <div
-          className="absolute inset-0 overflow-hidden"
+          className="absolute inset-0 overflow-hidden select-none"
           style={{ clipPath: `inset(0 ${100 - position}% 0 0)` }}
         >
-          <div className="w-full aspect-video bg-gray-400 flex items-center justify-center">
-            <img src={afterSrc} alt={`${alt} - After`} className="w-full h-full object-cover" />
+          <div className="w-full aspect-[4/3] bg-gray-400 flex items-center justify-center select-none">
+            <img 
+              src={afterSrc} 
+              alt={`${alt} - After`} 
+              className="w-full h-full object-cover select-none pointer-events-none" 
+              draggable={false}
+            />
           </div>
         </div>
 
