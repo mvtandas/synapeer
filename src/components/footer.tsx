@@ -42,7 +42,6 @@ export function Footer() {
             <div className="space-y-2 text-sm text-muted-foreground">
               <p>info@synapeer.com</p>
               <p>30 N Gould St, Sheridan, WY</p>
-              <p>Business Hours: Monday - Sunday: 9:00 AM - 5:00 PM EST</p>
             </div>
             <div className="flex space-x-4">
               <Link href="https://www.linkedin.com/company/synapeer/" className="text-muted-foreground hover:text-primary transition-colors">

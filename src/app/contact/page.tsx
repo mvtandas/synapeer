@@ -2,7 +2,7 @@ import { ContactForm } from "@/components/contact-form"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { getFloatingElements } from "@/lib/deterministic-random"
-import { Mail, MapPin, Clock } from "lucide-react"
+import { Mail, MapPin } from "lucide-react"
 import Link from "next/link"
 
 export function generateMetadata() {
@@ -129,12 +129,6 @@ export default function ContactPage() {
                     title: "Office",
                     description: "30 N Gould St, Sheridan, WY",
                     delay: 100
-                  },
-                  {
-                    icon: Clock,
-                    title: "Business Hours",
-                    description: "Monday - Sunday: 9:00 AM - 5:00 PM EST",
-                    delay: 200
                   }
                 ].map((contact) => (
                   <div
@@ -188,7 +182,7 @@ export default function ContactPage() {
               <div className="relative z-10">
 
                 <Button asChild className="bg-gradient-to-r from-deep-tech-blue to-bold-teal hover:from-deep-tech-blue/90 hover:to-bold-teal/90 text-white shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 px-10 py-4 text-xl">
-                  <Link href="#calendly">
+                  <Link href="https://calendar.app.google/g28YwwNDQZ7hYTu47" target="_blank" rel="noopener noreferrer">
                     Schedule a Strategy Call
                   </Link>
                 </Button>
